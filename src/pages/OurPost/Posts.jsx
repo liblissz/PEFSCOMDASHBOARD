@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Shownav from '../../components/SHownav/Shownav';
 import upload from '../../assets/upload_area.svg';
 import rating from '../../assets/rating_starts.png'
-import videoFile from '../../assets/VID-20250517-WA0001[1].mp4'
 import './Posts.css';
 import { ArrowBigRightIcon, CommandIcon, Heart, ListCheckIcon, MessageCircle, Send, ShareIcon, Upload, UploadIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
