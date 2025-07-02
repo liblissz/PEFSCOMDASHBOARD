@@ -297,11 +297,28 @@ body.dark #content nav .notification-menu li a {
   color: var(--light);
 }
 #content nav .profile img {
-  width: 36px;
+  width: 70px;
   height: 36px;
   object-fit: cover;
   border-radius: 50%;
+  transition: all 0.3s ease;
 }
+
+@media (max-width: 500px) {
+  #content nav .profile {
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+
+  #content nav .profile img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
 #content nav .profile-menu {
   display: none;
   position: absolute;
