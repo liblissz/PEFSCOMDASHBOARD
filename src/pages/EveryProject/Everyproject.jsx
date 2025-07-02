@@ -15,7 +15,7 @@ const Everyproject = () => {
   useEffect(() => {
     const fetchInfo = async () => {
       try {
-        const res = await axios.get(`https://pefscom-backend.onrender.com/api/company/project/post/${id}`);
+        const res = await axios.get(`https://pefscombackendprivate.onrender.com/api/company/project/post/${id}`);
         setInfo(res.data);
       } catch (error) {
         toast.error("Failed to fetch project data.");
@@ -66,7 +66,7 @@ const Everyproject = () => {
       if (image) {
         if (!uploaded) return;
       }
-   await axios.put(`https://pefscom-backend.onrender.com/api/company/project/post/${id}`,
+   await axios.put(`https://pefscombackendprivate.onrender.com/api/company/project/post/${id}`,
    {
     projectImg: uploaded,
      isCompleted: completed

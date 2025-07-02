@@ -73,7 +73,7 @@ const uploadFile = async () => {
         return;
       }
 
-      const response = await axios.post('https://pefscom-backend.onrender.com/admin/picture/post', {
+      const response = await axios.post('https://pefscombackendprivate.onrender.com/admin/picture/post', {
         title: title,
         content: content,
         price: price,
@@ -104,7 +104,7 @@ const uploadFile = async () => {
     const fetchPicturePosts = async ()=>{
       try {
           setLoading(true)
-        const fetch = await axios.get("https://pefscom-backend.onrender.com/admin/picture/post")
+        const fetch = await axios.get("https://pefscombackendprivate.onrender.com/admin/picture/post")
         setpicturepost(fetch.data)
       } catch (error) {
         toast.error("error fetching posts", error)
@@ -117,7 +117,7 @@ fetchPicturePosts()
 const fetchVideoPosts = async ()=>{
   try {
     setLoading(true)
-  const res = await axios.get("https://pefscom-backend.onrender.com/admin/video/post")
+  const res = await axios.get("https://pefscombackendprivate.onrender.com/admin/video/post")
     setvideopost(res.data)
 
   } catch (error) {

@@ -12,7 +12,7 @@ const [loading, setloading] = useState(false)
  const fetchorder = async ()=>{
   try {
     setloading(true)
-    const allorders = await axios.get("https://pefscom-backend.onrender.com/get/orders")
+    const allorders = await axios.get("https://pefscombackendprivate.onrender.com/get/orders")
     setorders(allorders.data)
   } catch (error) {
     toast.error(error)

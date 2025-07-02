@@ -60,7 +60,7 @@ const PostVideo = () => {
       if (!videoUrl) return;
 
       // OPTIONAL: send to backend
-      await axios.post('https://pefscom-backend.onrender.com/admin/video/post', {
+      await axios.post('https://pefscombackendprivate.onrender.com/admin/video/post', {
         title: title,
          content: desc, 
          price:price , 

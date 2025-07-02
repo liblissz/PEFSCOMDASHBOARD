@@ -17,7 +17,7 @@ const Team = () => {
     const fetchUsers = async () => {
       try {
         setloding(true)
-        const allusers = await axios.get("https://pefscom-backend.onrender.com/api/signup/admin")
+        const allusers = await axios.get("https://pefscombackendprivate.onrender.com/api/signup/admin")
         setusers(allusers.data)
         //  if(!allusers){
         //   toast.error("error getting users")

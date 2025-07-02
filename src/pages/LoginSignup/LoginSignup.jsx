@@ -114,7 +114,7 @@ const LoginSignup = () => {
         return;
       }
 
-      const response = await axios.post('https://pefscom-backend.onrender.com/api/signup/admin', {
+      const response = await axios.post('https://pefscombackendprivate.onrender.com/api/signup/admin', {
         username,
         email,
         about,
@@ -155,7 +155,7 @@ const LoginSignup = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("https://pefscom-backend.onrender.com/api/login/admin", {
+      const response = await axios.post("https://pefscombackendprivate.onrender.com/api/login/admin", {
         email: emailcheck,
         password: passwordcheck,
       });
@@ -201,7 +201,7 @@ const sendOtp = async (e) => {
   e.preventDefault()
   try {
     setLoading(true)
-    const res = await axios.post('https://pefscom-backend.onrender.com/api/auth/request-reset-password', { email : emailupdate });
+    const res = await axios.post('https://pefscombackendprivate.onrender.com/api/auth/request-reset-password', { email : emailupdate });
     if (res.data.success) {
       
       if (res.data.message === "OTP sent to your email") {
@@ -228,7 +228,7 @@ const verifyOtp = async (e) => {
       e.preventDefault()
   try {
   setLoading(true)
-    const res = await axios.post('https://pefscom-backend.onrender.com/api/auth/reset-password', {
+    const res = await axios.post('https://pefscombackendprivate.onrender.com/api/auth/reset-password', {
       email: emailnow, 
       otp: otp,
       newPassword: newPassword

@@ -12,7 +12,7 @@ const Userweb = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        const res = await axios.get('https://pefscom-backend.onrender.com/normal/users');
+        const res = await axios.get('https://pefscombackendprivate.onrender.com/normal/users');
         setUsers(res.data);
       } catch (error) {
         toast.error(error);

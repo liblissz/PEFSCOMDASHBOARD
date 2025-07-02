@@ -25,7 +25,7 @@ const Header = ({
       if (!token) return;
       try {
         setLoading(true);
-        const res = await axios.get('https://pefscom-backend.onrender.com/api/profile', {
+        const res = await axios.get('https://pefscombackendprivate.onrender.com/api/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -48,7 +48,7 @@ const Header = ({
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const res = await axios.get('https://pefscom-backend.onrender.com/api/notifications');
+        const res = await axios.get('https://pefscombackendprivate.onrender.com/api/notifications');
         setNotifications(res.data);
       } catch (error) {
         console.error(error);
@@ -58,7 +58,7 @@ const Header = ({
 const fetchadmins = async()=>{
   try {
     setLoading(true)
-    const res = await axios.get('https://pefscom-backend.onrender.com/api/signup/admin');
+    const res = await axios.get('https://pefscombackendprivate.onrender.com/api/signup/admin');
     setadmins(res.data)
   } catch (error) {
 
@@ -70,7 +70,7 @@ const fetchadmins = async()=>{
 const fetchProjectsadmin = async()=>{
   try {
     setLoading(true)
-    const res = await axios.get('https://pefscom-backend.onrender.com/api/company/project/post');
+    const res = await axios.get('https://pefscombackendprivate.onrender.com/api/company/project/post');
     setprojects(res.data)
   } catch (error) {
 

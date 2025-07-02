@@ -14,7 +14,7 @@ const Main = () => {
     const fetchData = async () => {
       try {
         setloading(true)
-        const res = await axios.get("https://pefscom-backend.onrender.com/api/company/project/post")
+        const res = await axios.get("https://pefscombackendprivate.onrender.com/api/company/project/post")
         setsavedata(res.data)
        
       } catch (error) {
@@ -33,7 +33,7 @@ const Main = () => {
     const fetchorder = async ()=>{
      try {
        setloading(true)
-       const allorders = await axios.get("https://pefscom-backend.onrender.com/get/orders")
+       const allorders = await axios.get("https://pefscombackendprivate.onrender.com/get/orders")
        setorders(allorders.data)
      } catch (error) {
        toast.error(error)
@@ -64,7 +64,7 @@ const Main = () => {
    useEffect(() => {
     const fetchCount = async () => {
       try {
-        const res = await axios.get('https://pefscom-backend.onrender.com/api/pageview');
+        const res = await axios.get('https://pefscombackendprivate.onrender.com/api/pageview');
         setTotalViews(res.data.totalViews);
       } catch (error) {
         console.error('Failed to fetch page views', error);

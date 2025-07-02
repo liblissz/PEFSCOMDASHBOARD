@@ -35,7 +35,7 @@ const [userRatings, setUserRatings] = useState({});
 useEffect(() => {
   const fetchAll = async () => {
     try {
-      const profileRes = await axios.get('https://pefscom-backend.onrender.com/api/profile', {
+      const profileRes = await axios.get('https://pefscombackendprivate.onrender.com/api/profile', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(profileRes.data);
@@ -46,7 +46,7 @@ useEffect(() => {
         about: profileRes.data.about,
       });
 
-      const projectRes = await axios.get(`https://pefscom-backend.onrender.com/api/user/add-project/${profileRes.data._id}`, {
+      const projectRes = await axios.get(`https://pefscombackendprivate.onrender.com/api/user/add-project/${profileRes.data._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setprojectdetails(projectRes.data);
@@ -104,7 +104,7 @@ useEffect(() => {
     try {
       setLoading(true);
       const uploaded = await uploadprojectpic();
-      await axios.post(`https://pefscom-backend.onrender.com/api/user/add-project/${user._id}`, {
+      await axios.post(`https://pefscombackendprivate.onrender.com/api/user/add-project/${user._id}`, {
         title,
         description,
         completed,
@@ -154,7 +154,7 @@ useEffect(() => {
         if (!uploaded) return;
         imageUrl = uploaded;
       }
-      await axios.put(`https://pefscom-backend.onrender.com/user/edit/${user._id}`, {
+      await axios.put(`https://pefscombackendprivate.onrender.com/user/edit/${user._id}`, {
         ...formData,
         profileImage: imageUrl,
       });
@@ -204,7 +204,7 @@ const handleRatingChange = async (projectId, rating) => {
   try {
     // PUT rating for this project by this user to backend
     await axios.put(
-      `https://pefscom-backend.onrender.com/api/user/rate-project/${user._id}/${projectId}`,
+      `https://pefscombackendprivate.onrender.com/api/user/rate-project/${user._id}/${projectId}`,
       { rating },
       { headers: { Authorization: `Bearer ${token}` } }
     );

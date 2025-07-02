@@ -15,7 +15,7 @@ const Analytics = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("https://pefscom-backend.onrender.com/api/company/project/post");
+        const res = await axios.get("https://pefscombackendprivate.onrender.com/api/company/project/post");
         setProjects(res.data);
       } catch (error) {
         console.error("Error fetching projects:", error);

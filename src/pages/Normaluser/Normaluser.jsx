@@ -14,7 +14,7 @@ const [loading, setloading] = useState(false)
         const fetchuser = async()=>{
 try {
     setloading(true)
-    const user = await axios.get(`https://pefscom-backend.onrender.com/normal/users/${id}`)
+    const user = await axios.get(`https://pefscombackendprivate.onrender.com/normal/users/${id}`)
     setuserdata(user.data)
     
 } catch (error) {

@@ -21,7 +21,7 @@ const Project = () => {
         e.preventDefault()
         try {
             setloading(true)
-            await axios.post("https://pefscom-backend.onrender.com/api/company/project/post",
+            await axios.post("https://pefscombackendprivate.onrender.com/api/company/project/post",
                { title,
                 description,
                 startDate,

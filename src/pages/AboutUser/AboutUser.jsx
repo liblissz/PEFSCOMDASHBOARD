@@ -22,7 +22,7 @@ const AboutUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`https://pefscom-backend.onrender.com/api/user/${id}`);
+        const res = await axios.get(`https://pefscombackendprivate.onrender.com/api/user/${id}`);
         if (res.status === 200) {
           setUser(res.data);
        
@@ -39,7 +39,7 @@ const AboutUser = () => {
 
     const fetchproject = async () => {
       try {
-        const fetchuserproject = await axios.get(`https://pefscom-backend.onrender.com/api/user/add-project/${id}`)
+        const fetchuserproject = await axios.get(`https://pefscombackendprivate.onrender.com/api/user/add-project/${id}`)
         setproject(fetchuserproject.data)
        
       } catch (error) {
@@ -82,7 +82,7 @@ const AboutUser = () => {
 const handleRatingChange = async (projectId, rating) => {
   try {
     const response = await axios.put(
-      `https://pefscom-backend.onrender.com/api/user/rate-project/${id}/${projectId}`,  // Adjust the URL to your API
+      `https://pefscombackendprivate.onrender.com/api/user/rate-project/${id}/${projectId}`,  // Adjust the URL to your API
       { rating },
       { headers: { Authorization: `Bearer ${token}` } }
     );

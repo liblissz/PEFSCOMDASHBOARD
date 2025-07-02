@@ -1,6 +1,6 @@
 // import { io } from 'socket.io-client';
 
-// const socket = io('https://pefscom-backend.onrender.com', {
+// const socket = io('https://pefscombackendprivate.onrender.com', {
 //   transports: ['websocket'],
 //   withCredentials: true,
 // });
@@ -13,7 +13,7 @@
 
 import { io } from 'socket.io-client';
 
-const socket = io('https://pefscom-backend.onrender.com', {
+const socket = io('https://pefscombackendprivate.onrender.com', {
   transports: ['websocket'], // Ensure websocket transport
   withCredentials: false, // Set to false if you're not using cookies
   reconnectionAttempts: 5,
