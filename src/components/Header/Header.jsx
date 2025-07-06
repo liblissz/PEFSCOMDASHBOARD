@@ -19,13 +19,13 @@ const Header = ({
   const [loading, setLoading] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [search, setsearch] = useState("")
-
+const [open, setopen] = useState(false)
   useEffect(() => {
     const fetchProfile = async () => {
       if (!token) return;
       try {
         setLoading(true);
-        const res = await axios.get('https://pefscombackendprivate.onrender.com/api/profile', {
+        const res = await axios.get('https://pefscom-backend.onrender.com/api/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -48,7 +48,7 @@ const Header = ({
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const res = await axios.get('https://pefscombackendprivate.onrender.com/api/notifications');
+        const res = await axios.get('https://pefscom-backend.onrender.com/api/notifications');
         setNotifications(res.data);
       } catch (error) {
         console.error(error);
@@ -58,7 +58,7 @@ const Header = ({
 const fetchadmins = async()=>{
   try {
     setLoading(true)
-    const res = await axios.get('https://pefscombackendprivate.onrender.com/api/signup/admin');
+    const res = await axios.get('https://pefscom-backend.onrender.com/api/signup/admin');
     setadmins(res.data)
   } catch (error) {
 
@@ -70,7 +70,7 @@ const fetchadmins = async()=>{
 const fetchProjectsadmin = async()=>{
   try {
     setLoading(true)
-    const res = await axios.get('https://pefscombackendprivate.onrender.com/api/company/project/post');
+    const res = await axios.get('https://pefscom-backend.onrender.com/api/company/project/post');
     setprojects(res.data)
   } catch (error) {
 
@@ -105,6 +105,76 @@ fetchadmins()
   };
 
   return (
+    <>
+    {open && 
+    <div className='search'>
+<div className="enter">
+  <input type="text" className='search-into' value={search} onChange={(e)=> setsearch(e.target.value)} placeholder='place your search..' disabled={false} />
+</div>
+<div className={search.length=== 0 ? "nonedisplay" :'search-come'}>
+        
+ <ul>
+
+
+  {loading &&   <div className="all1"><ClipLoader/></div>}
+  {admins.length === 0 && <p>no user found here</p>}
+{/* Filter and render Projects */}
+{projects.filter((project) =>
+  project.title.toLowerCase().includes(search.toLowerCase()) ||
+  project.description.toLowerCase().includes(search.toLowerCase())
+).length === 0 ? (
+  <p>No project found</p>
+) : (
+  projects
+    .filter((project) =>
+      project.title.toLowerCase().includes(search.toLowerCase()) ||
+      project.description.toLowerCase().includes(search.toLowerCase())
+    )
+    .map((project, index) => (
+      <Link to={`/everyproject/${project._id}`} key={index}>
+        <li>
+          <img
+            src={project.projectImg}
+            alt="Project"
+            style={{ width: "40px", borderRadius: "50%" }}
+          />
+          <p>{project.title}</p>
+        </li>
+      </Link>
+    ))
+)}
+
+{/* Filter and render Admins */}
+{admins.filter((admin) =>
+  admin.username.toLowerCase().includes(search.toLowerCase())
+).length === 0 ? (
+  <p>No admin found</p>
+) : (
+  admins
+    .filter((admin) =>
+      admin.username.toLowerCase().includes(search.toLowerCase())
+    )
+    .map((admin, index) => (
+      <Link to={`/team/${admin._id}`} key={index}>
+        <li>
+          <img
+            src={admin.profileImage}
+            alt="Admin"
+            style={{ width: "40px", borderRadius: "50%" }}
+          />
+          <p>{admin.username}</p>
+        </li>
+      </Link>
+    ))
+)}
+
+
+</ul>
+
+  
+        </div>
+  
+      </div>}
     <nav>
                <Toaster position="top-center" reverseOrder={false} />
       <Menu className="menu-toggle" id="menu" onClick={toggleSidebar} />
@@ -116,7 +186,7 @@ fetchadmins()
       <form action="#">
         <div className="form-input">
           <input type="search" placeholder="Search..." autoComplete='disabled'  value={search} onChange={(e)=> setsearch(e.target.value)}/>
-          <button type="submit" className="search-btn">
+          <button type="submit" className="search-btn" onClick={()=> setopen(!open)}>
             <Search />
           </button>
         </div>
@@ -239,7 +309,7 @@ fetchadmins()
             ref={profileRef}
             onClick={toggleProfile}
           >
-            <img src={userprofile.profileImage} alt="Profile" />
+            <img src={userprofile.profileImage} alt="Profile"  />
           </a>
 
           <div className="profile-menu">
@@ -270,6 +340,7 @@ fetchadmins()
         </>
       )}
     </nav>
+    </>
   );
 };
 
