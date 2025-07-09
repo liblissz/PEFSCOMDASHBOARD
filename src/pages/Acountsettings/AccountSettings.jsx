@@ -129,7 +129,11 @@ const AccountSettings = () => {
   return (
     <>
       <Toaster position="top-center" />
+      <main>
       <Shownav name="Your Profile" />
+
+
+      </main>
       <div id="card">
         <img id="avatar" src={image ? URL.createObjectURL(image) : user.profileImage || upload} alt="avatar" />
         <form onSubmit={handleSubmit} className='formal'>
